@@ -1,0 +1,62 @@
+<%-include('../partials/header.html')%>
+    <link rel="stylesheet" href="/../../css/borrower.css">
+    <title>customer Profile</title>
+    </head>
+
+    <body>
+
+        <%-include('partials/navbar.html')%>
+            <div class="container-fluid">
+                <div class="row">
+                    <%-include('partials/sidebar.html')%>
+                        <div class="col-md-10 content">
+                            <div class="row">
+                                <div class="col-md-11 profile-content">
+                                    <p class="display-4">Your Profile</p>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Full Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" readonly value="<%=res.fullName%>">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" readonly value="<%=res.email%>">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Address</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" readonly value="<%=res.address%>">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Gender</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" readonly value="<%=res.gender%>">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Registered on</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" readonly value="<%=res.regTime%>">
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <a href="/borrower/profile/edit">Edit Profile</a> |
+                                    <a href="/borrower/changepassword">Change Password</a>
+
+                                </div>
+                            
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <%-include('../partials/footer.html')%>

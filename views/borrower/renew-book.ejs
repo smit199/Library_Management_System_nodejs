@@ -1,0 +1,43 @@
+<%-include('../partials/header.html')%>
+    <link rel="stylesheet" href="/../../css/borrower.css">
+    <title>customer Change Password</title>
+    </head>
+
+    <body>
+
+        <%-include('partials/navbar.html')%>
+        <div class="container-fluid">
+            <div class="row">
+                <%-include('partials/sidebar.html')%>
+                <div class="col-md-10 content">
+                    <div class="row">
+                        <div class="col-md-11 change-password">
+                            <p class="display-4">Renew Book</p>
+                            <form class="" method="post">
+                                <hr>
+                                <div class="form-group row">
+                                    <input type="hidden" name="_method" value="put">
+                                    <label class="col-sm-2 col-form-label">Days</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" class="form-control" name="days" placeholder="For how many days you want to borrow book?">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div>
+                                    <button type="submit" class="btn btn-primary">Renew</button>
+                                    <br>
+                                </div>
+                                <div class="">
+                                    <% for(var i=0; i< errs.length; i++){ %>
+                                        <%= errs[i].message; %>
+                                        <br>
+                                    <% } %>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<%-include('../partials/footer.html')%>

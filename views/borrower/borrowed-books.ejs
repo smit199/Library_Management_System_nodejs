@@ -1,0 +1,71 @@
+<%-include('../partials/header.html')%>
+    <link rel="stylesheet" href="/../../css/borrower.css">
+    <title>Borrowed Books</title>
+    </head>
+
+    <body>
+
+        <%-include('partials/navbar.html')%>
+            <div class="container-fluid">
+                <div class="row">
+                    <%-include('partials/sidebar.html')%>
+                        <div class="col-md-10 content">
+                            <p class="display-3">Your Borrowed Books..</p>
+                            <table class="table table-striped table-light table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Issue ID</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Author</th>
+                                        <th scope="col">Issued Date</th>
+                                        <th scope="col">Return Date</th>
+                                        <th scope="col">Days Left</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(var i=0; i < res.length; i++){ %>
+                                        <tr>
+                                            <th scope="row">
+                                                <%=res[i]._id%>
+                                            </th>
+                                            <td>
+                                                <%=res[i].book_id.title%>
+                                            </td>
+                                            <td>
+                                                <%=res[i].book_id.author%>
+                                            </td>
+                                            <td>
+                                                <%=res[i].issueDate%>
+                                            </td>
+                                            <td>
+                                                <%=res[i].returnDate%>
+                                            </td>
+                                            <td>
+                                                <%
+                                                    const date1 = new Date();
+                                                    const date2 = res[i].returnDate;
+                                                    const timeDiff = date2.getTime() - date1.getTime();
+                                                    const daysLeft = Math.ceil(timeDiff / (1000*60*60*24));
+                                                %>
+                                                <%=daysLeft%>
+                                            </td>
+                                            <td>
+                                                <% if(daysLeft >= 1) { %>
+                                                    <p>Available</p>
+                                                    <a href="/borrower/returnBook/<%=res[i]._id%>?_method=delete"><button type="button" class="btn btn-danger">Return Book</button></a>
+                                                <% } else { %>
+                                                    <p>Expired</p>
+                                                    <a href="/borrower/renewBook/<%=res[i]._id%>"><button type="button" class="btn btn-primary">Renew Book</button></a><hr>
+                                                    <a href="/borrower/returnBook/<%=res[i]._id%>?_method=delete"><button type="button" class="btn btn-danger">Return Book</button></a>
+                                                <% } %>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+
+            <%-include('../partials/footer.html')%>

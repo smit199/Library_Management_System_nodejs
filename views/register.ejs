@@ -1,0 +1,67 @@
+<%-include('partials/header.html')%>
+    <link rel="stylesheet" href="../css/register.css">
+    <title>Signup page</title>
+    <script>
+        function confirmPassword() {
+            var pwd = document.registrationForm.password;
+            var confpwd = document.registrationForm.confirmPassword;
+            console.log(pwd.value);
+            console.log(confpwd.value);
+            if(pwd.value!=confpwd.value)
+                confpwd.setCustomValidity("password does not match");
+            else
+                confpwd.setCustomValidity("");
+        }
+    </script>
+    </head>
+
+    <body>
+        <div class="container bg-image">
+            <h1 class="display-3 header" style="background-color:#3a3736; color:white">Library Management System</h1>
+            <div class="row">
+                <div class="col-sm-6 signup-form">                
+                    <div class="alert alert-primary" role="alert">
+                        Register now to get access to all the books!
+                    </div>
+                    <form class="submit form" method="post" name="registrationForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="John Doe" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword4">Password</label>
+                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="password" required>
+                        </div>
+                        <span>Select Gender</span>
+                        <div class="form-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="Male" checked>
+                            <label class="form-check-label" for="exampleRadios1">Male</label>
+                            <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="Female">
+                            <label class="form-check-label" for="exampleRadios2">Female</label>
+                            <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="Other">
+                            <label class="form-check-label" for="exampleRadios2">Other</label>
+                        </div>
+                        <div class="submit-button">
+                            <input type="submit" class="btn btn-danger" value="Create an account!">
+                            <br>
+                            OR
+                        </div>
+                    </form>
+                    <div class="submit-button">
+                        <a href="/login"><button class="btn btn-success">Sign in</button></a>
+                    </div>
+                    <div class="">
+                        <%= message %>
+                    </div>
+                </div>
+            </div>
+        </div>
+<%-include('partials/footer.html')%>
