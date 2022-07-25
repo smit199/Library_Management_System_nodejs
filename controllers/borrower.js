@@ -79,11 +79,10 @@ router.post('/books', (req, res)=> {
     let query = {};
     query[searchBy] = word;
     bookModel.find(query, (err, result) => {
-        if(err || result.length === 0)
-            return res.render('borrower/books', {res: [], issued: [], errs: [{message: "No results found!"}]});
+        if(err)
+            return res.end("invalid");
         else {
-            let issued_books = issuedBooks(result);
-            return res.render('borrower/books', {res: result, issued: issued_books, errs: []});
+            return res.render('borrower/books', {res: result, errs: []});
         }
     });
 });
