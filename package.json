@@ -4,6 +4,7 @@
   "description": "\"It is a system in which admin can manage all books and other users can borrow books \"",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

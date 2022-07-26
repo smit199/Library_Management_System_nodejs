@@ -69,6 +69,11 @@
     margin-top: 2rem;
 }
 
+.table-content {
+    font-size: 10pt;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
 
 /* admin/profile.css */
 
