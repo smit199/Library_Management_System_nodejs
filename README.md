@@ -6,13 +6,11 @@ A comprehensive web-based Library Management System built with **Node.js**, **Ex
 
 - [Features](#features)
 - [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
-- [API Routes](#api-routes)
-- [Database Schema](#database-schema)
+- [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -45,42 +43,6 @@ A comprehensive web-based Library Management System built with **Node.js**, **Ex
 - **Styling:** CSS
 - **HTTP Method Override:** method-override
 - **Environment Variables:** dotenv
-
-## Project Structure
-
-```
-Library_Management_System_nodejs/
-├── controllers/
-│   ├── register.js        # User registration logic
-│   ├── login.js           # User login logic
-│   ├── logout.js          # User logout logic
-│   ├── admin.js           # Admin operations
-│   └── borrower.js        # Borrower operations
-├── models/
-│   ├── User.js            # User schema
-│   ├── Book.js            # Book schema
-│   └── BorrowRecord.js    # Borrow history schema
-├── views/
-│   ├── index.ejs
-│   ├── login.ejs
-│   ├── register.ejs
-│   ├── admin/
-│   │   ├── dashboard.ejs
-│   │   ├── books.ejs
-│   │   └── borrowers.ejs
-│   └── borrower/
-│       ├── dashboard.ejs
-│       ├── browse.ejs
-│       └── myBooks.ejs
-├── css/
-│   └── style.css          # Application styling
-├── images/
-│   └── [image assets]
-├── app.js                 # Main application file
-├── package.json           # Project dependencies
-├── .env                   # Environment variables
-└── .gitignore            # Git ignore file
-```
 
 ## Prerequisites
 
@@ -160,66 +122,71 @@ MONGODB_URL=mongodb+srv://username:password@cluster.mongodb.net/library_manageme
    - **Admin:** Access the admin dashboard to manage books and view borrowers
    - **Borrower:** Browse available books and manage your borrowing
 
-## API Routes
+## Project Structure
 
-### Authentication Routes
-- `GET /login` - Display login page
-- `POST /login` - Handle login
-- `GET /register` - Display registration page
-- `POST /register` - Handle user registration
-- `GET /logout` - Logout user
-
-### Admin Routes
-- `GET /admin` - Admin dashboard
-- `GET /admin/books` - View all books
-- `POST /admin/books` - Add new book
-- `PUT /admin/books/:id` - Update book details
-- `DELETE /admin/books/:id` - Delete book
-- `GET /admin/borrowers` - View all borrowers
-
-### Borrower Routes
-- `GET /borrower` - Borrower dashboard
-- `GET /borrower/available` - Browse available books
-- `POST /borrower/borrow/:bookId` - Borrow a book
-- `POST /borrower/return/:bookId` - Return a book
-- `GET /borrower/mybooks` - View borrowed books
-
-## Database Schema
-
-### User Schema
-```javascript
-{
-  name: String,
-  email: String (unique),
-  password: String (hashed),
-  role: String (admin/borrower),
-  createdAt: Date
-}
 ```
-
-### Book Schema
-```javascript
-{
-  title: String,
-  author: String,
-  isbn: String (unique),
-  copies: Number,
-  availableCopies: Number,
-  category: String,
-  addedAt: Date
-}
-```
-
-### Borrow Record Schema
-```javascript
-{
-  borrowerId: ObjectId,
-  bookId: ObjectId,
-  borrowDate: Date,
-  returnDate: Date,
-  actualReturnDate: Date,
-  status: String (borrowed/returned)
-}
+└── 📁Library_Management_System
+    └── 📁controllers
+        ├── admin.js
+        ├── borrower.js
+        ├── login.js
+        ├── logout.js
+        ├── register.js
+    └── 📁css
+        ├── admin.css
+        ├── borrower.css
+        ├── login.css
+        ├── register.css
+    └── 📁images
+        ├── admin_library.jpg
+        ├── background.jpg
+        ├── bookshelves-library-old-books-3d-260nw-1530516716.webp
+        ├── library-1.jpg
+        ├── library-2.png
+        ├── profile-pic.jpg
+    └── 📁models
+        ├── books.js
+        ├── issuedbooks.js
+        ├── user.js
+    └── 📁views
+        └── 📁admin
+            └── 📁partials
+                ├── navbar.html
+                ├── sidebar.html
+                ├── template.html
+            ├── books-add.ejs
+            ├── books-edit.ejs
+            ├── books.ejs
+            ├── borrowers.ejs
+            ├── change-password.ejs
+            ├── home.ejs
+            ├── issued-books.ejs
+            ├── profile-edit.ejs
+            ├── profile.ejs
+        └── 📁borrower
+            └── 📁partials
+                ├── navbar.html
+                ├── sidebar.html
+                ├── template.html
+            ├── books.ejs
+            ├── borrowed-books.ejs
+            ├── change-password.ejs
+            ├── home.ejs
+            ├── issue-book.ejs
+            ├── profile-edit.ejs
+            ├── profile.ejs
+            ├── renew-book.ejs
+        └── 📁partials
+            ├── footer.html
+            ├── header.html
+        ├── login.ejs
+        ├── register.ejs
+    ├── .env
+    ├── .gitignore
+    ├── app.js
+    ├── LMS_ERD.jpg.jpg
+    ├── package-lock.json
+    └── package.json
 ```
 
 ## Contributing
@@ -234,7 +201,7 @@ Contributions are welcome! To contribute:
 
 ## License
 
-This project is licensed under the ISC License - see the LICENSE file for details.
+This project is licensed under the ISC License.
 
 ---
 
